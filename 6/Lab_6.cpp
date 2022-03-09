@@ -5,7 +5,7 @@ int main()
 {
 	setlocale(LC_ALL, "Rus");
 	char line[255];
-	cout << "������� ������: " << endl;
+	cout << "Ââåäèòå ñòðîêó: " << endl;
 	gets_s(line, 255);
 	string result = "";
 	string word = "";
@@ -23,6 +23,7 @@ int main()
 			word = "";
 		}
 	}
+	cout << "Слова - палиндромы: " << endl;
 	cout << result;
 	return 0;
 }
