@@ -14,7 +14,7 @@ int NOD(int a, int b) {
 int NOK(int a, int b) {
 	return (a * b) / NOD(a, b);
 }
-// функция вычитания обчных дробей 
+// С„СѓРЅРєС†РёСЏ РІС‹С‡РёС‚Р°РЅРёСЏ РѕР±С‡РЅС‹С… РґСЂРѕР±РµР№ 
 string difference(string a, string b) {
 	string first_a;
 	string second_a;
@@ -66,11 +66,11 @@ string difference(string a, string b) {
 	result += to_string(nok);
 	return result;
 }
-// функция вычитания десятичных дробей
+// С„СѓРЅРєС†РёСЏ РІС‹С‡РёС‚Р°РЅРёСЏ РґРµСЃСЏС‚РёС‡РЅС‹С… РґСЂРѕР±РµР№
 string difference(float a, float b) {
 	string result;
 	int cout = 0;
-	// для того, чтобы не было лишних нулей в конце числа 
+	// РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РЅРµ Р±С‹Р»Рѕ Р»РёС€РЅРёС… РЅСѓР»РµР№ РІ РєРѕРЅС†Рµ С‡РёСЃР»Р° 
 	for (char c : to_string(a - b)) { 
 		cout += 1;
 		if (((int(c) - 48) != 0)  || ((cout == 1) && ((int(c) - 48) == 0))) {
@@ -83,7 +83,7 @@ int main()
 {
 	setlocale(LC_ALL, "Rus");
 	int choice;
-	cout << "Выберете для каких дробей вычитание:" << endl << "1) Для десятичных" << endl << "2) Для обычных" << endl;
+	cout << "Р’С‹Р±РµСЂРµС‚Рµ РґР»СЏ РєР°РєРёС… РґСЂРѕР±РµР№ РІС‹С‡РёС‚Р°РЅРёРµ:" << endl << "1) Р”Р»СЏ РґРµСЃСЏС‚РёС‡РЅС‹С…" << endl << "2) Р”Р»СЏ РѕР±С‹РєРЅРѕРІРµРЅРЅС‹С…" << endl;
 	cin >> choice;
 	float a;
 	float b;
@@ -91,16 +91,16 @@ int main()
 	string d;
 	switch (choice) {
 		case 1:	
-			cout << "Введите первую дробь: ";
+			cout << "Р’РІРµРґРёС‚Рµ РїРµСЂРІСѓСЋ РґСЂРѕР±СЊ: ";
 			cin >> a;
-			cout << "Введите вторую дробь: ";
+			cout << "Р’РІРµРґРёС‚Рµ РІС‚РѕСЂСѓСЋ РґСЂРѕР±СЊ: ";
 			cin >> b;
 			cout << difference(a, b);
 			break;
 		case 2:
-			cout << "Введите первую дробь: ";
+			cout << "Р’РІРµРґРёС‚Рµ РїРµСЂРІСѓСЋ РґСЂРѕР±СЊ: ";
 			cin >> c;
-			cout << "Введите вторую дробь: ";
+			cout << "Р’РІРµРґРёС‚Рµ РІС‚РѕСЂСѓСЋ РґСЂРѕР±СЊ: ";
 			cin >> d;
 			cout << difference(c, d);
 			break;
