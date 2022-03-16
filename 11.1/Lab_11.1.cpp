@@ -14,7 +14,7 @@ struct List {
 };
 
 // добавление элемента в конец списка
-void pushBack_2(List& list, const double& data) {    // добавление узла в конец списка 2
+void pushBack_2(List& list, const double& data) {    
 	Node* new_node = new Node;
 	new_node->data = data;
 	if (list.head_node == nullptr) {
