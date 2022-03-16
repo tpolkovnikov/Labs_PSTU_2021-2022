@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-// узел
+// СѓР·РµР»
 struct Node {
 	double data;
 	Node* pointer_to_next_node = nullptr; 
 };
 
-// список
+// СЃРїРёСЃРѕРє
 struct List {
 	Node* head_node = nullptr;
 	Node* tail_node = nullptr;
 };
 
-// добавление элемента в конец списка
-void pushBack_2(List& list, const double& data) {    // добавление узла в конец списка 2
+// РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ РєРѕРЅРµС† СЃРїРёСЃРєР°
+void pushBack_2(List& list, const double& data) {    // РґРѕР±Р°РІР»РµРЅРёРµ СѓР·Р»Р° РІ РєРѕРЅРµС† СЃРїРёСЃРєР° 2
 	Node* new_node = new Node;
 	new_node->data = data;
 	if (list.head_node == nullptr) {
@@ -27,7 +27,7 @@ void pushBack_2(List& list, const double& data) {    // добавление узла в конец 
 	}
 }
 
-// вывод списка 
+// РІС‹РІРѕРґ СЃРїРёСЃРєР° 
 void print_list(List& list) {
 	Node* p = list.head_node;
 	while (p != nullptr) {
@@ -37,7 +37,7 @@ void print_list(List& list) {
 	cout << endl;
 }
 
-// удаление элемента по номеру 
+// СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РЅРѕРјРµСЂСѓ 
 Node* delete_el(List& list, int k) {
 	Node* p = list.head_node;
 	if (k == 0) {
@@ -69,19 +69,19 @@ int main()
 {
 	setlocale(LC_ALL, "Rus");
 
-	// создаём список
+	// СЃРѕР·РґР°С‘Рј СЃРїРёСЃРѕРє
 	List list_1;
 	int size = 10;
 	
-	// заполняем поле data узлов списка числами от 1 до size
+	// Р·Р°РїРѕР»РЅСЏРµРј РїРѕР»Рµ data СѓР·Р»РѕРІ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ size
 	for (int i = 1; i < size + 1; i++) {
 		pushBack_2(list_1, i);
 	}
-	cout << "Начальный список: " << endl;
+	cout << "РќР°С‡Р°Р»СЊРЅС‹Р№ СЃРїРёСЃРѕРє: " << endl;
 	print_list(list_1);
 	
-	// удаление элементов с чётными номерами
-	cout << endl << "Промежуточные результаты: " << endl;
+	// СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃ С‡С‘С‚РЅС‹РјРё РЅРѕРјРµСЂР°РјРё
+	cout << endl << "РџСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹Рµ СЂРµР·СѓР»СЊС‚Р°С‚С‹: " << endl;
 	int temp = 0;
 	for (int i = 1; i < size + 1; i++) {
 		if (i % 2 == 0) {
@@ -91,8 +91,8 @@ int main()
 		}
 	}
 
-	// выводим конечный список
-	cout << endl << "Конечный список: " << endl;
+	// РІС‹РІРѕРґРёРј РєРѕРЅРµС‡РЅС‹Р№ СЃРїРёСЃРѕРє
+	cout << endl << "РљРѕРЅРµС‡РЅС‹Р№ СЃРїРёСЃРѕРє: " << endl;
 	print_list(list_1);
 	return 0;
 }
