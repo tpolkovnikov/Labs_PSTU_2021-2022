@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-// узел
+// СѓР·РµР»
 struct Node {
 	char* data;
 	Node* pointer_to_next_node = nullptr;
 	Node* pointer_to_prev_node = nullptr;
 };
 
-// список
+// СЃРїРёСЃРѕРє
 struct List {
 	Node* head_node = nullptr;
 	Node* tail_node = nullptr;
 };
 
-// добавление элемента в конец списка
+// РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ РєРѕРЅРµС† СЃРїРёСЃРєР°
 void pushBack_2(List& list, char data[]) {    
 	Node* new_node = new Node;
 	new_node->data = data;
@@ -31,7 +31,7 @@ void pushBack_2(List& list, char data[]) {
 	}
 }
 
-// вывод списка 
+// РІС‹РІРѕРґ СЃРїРёСЃРєР° 
 void print_list(List& list) {
 	Node* p = list.head_node;
 	while (p != nullptr) {
@@ -41,20 +41,13 @@ void print_list(List& list) {
 	cout << endl;
 }
 
-// добавление элемента после элемента с заданным информационным полем
+// РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕСЃР»Рµ СЌР»РµРјРµРЅС‚Р° СЃ Р·Р°РґР°РЅРЅС‹Рј РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅС‹Рј РїРѕР»РµРј
 void add_el_by_data(List& list, char data[], char add_data[]) {
 	Node* p = list.head_node;
-	/*
-	for (int i = 0; i < 8; i++) {
-		if (p->data == data) {
-			break;
-		}
-		p = p->pointer_to_next_node;
-	}*/
 	while (p->data != data) {
 		p = p->pointer_to_next_node;
 	}
-	// p = элементу с заданным полем
+	// p = СЌР»РµРјРµРЅС‚Сѓ СЃ Р·Р°РґР°РЅРЅС‹Рј РїРѕР»РµРј
 
 	if (p == list.tail_node) {
 		Node new_data;
@@ -77,10 +70,10 @@ int main()
 {
 	setlocale(LC_ALL, "Rus");
 
-	// создаём список
+	// СЃРѕР·РґР°С‘Рј СЃРїРёСЃРѕРє
 	List list_1;
 
-	// заполняем поле data узлов списка 
+	// Р·Р°РїРѕР»РЅСЏРµРј РїРѕР»Рµ data СѓР·Р»РѕРІ СЃРїРёСЃРєР° 
 	char s[] = "Three";
 	pushBack_2(list_1, s);
 	char s_1[] = "Rings"; 
@@ -98,12 +91,12 @@ int main()
 	char s_7[] = "sky";
 	pushBack_2(list_1, s_7);
 	
-	cout << "Начальный список: " << endl;
+	cout << "РќР°С‡Р°Р»СЊРЅС‹Р№ СЃРїРёСЃРѕРє: " << endl;
 	print_list(list_1);
 	cout << endl;
 
 	char new_data[] = "Temp";
-	cout << endl << "Конечный список: ";
+	cout << endl << "РљРѕРЅРµС‡РЅС‹Р№ СЃРїРёСЃРѕРє: ";
 	add_el_by_data(list_1, s_4, new_data);
 	cout << endl;
 	print_list(list_1);
