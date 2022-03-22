@@ -1,19 +1,18 @@
 #include <iostream>
 using namespace std;
 
-// компонент стека
+// РєРѕРјРїРѕРЅРµРЅС‚ СЃС‚РµРєР°
 struct comp {
 	double data;
 	struct comp* next = nullptr;
 };
 
-//стек
+//СЃС‚РµРє
 struct Stack {
 	struct comp* head = nullptr;
 };
 
-
-// добавление в стек элемента
+// РґРѕР±Р°РІР»РµРЅРёРµ РІ СЃС‚РµРє СЌР»РµРјРµРЅС‚Р°
 void add_comp(Stack& stack, const double& data) {
 	comp* new_el = new comp;
 	new_el->data = data;
@@ -26,7 +25,7 @@ void add_comp(Stack& stack, const double& data) {
 	}
 }
 
-// вывод стека
+// РІС‹РІРѕРґ СЃС‚РµРєР°
 void show_stack(Stack& stack) {
 	comp* el = stack.head;
 	while (el->next != nullptr) {
@@ -38,7 +37,8 @@ void show_stack(Stack& stack) {
 
 
 }
-// длинна стека
+
+// РґР»РёРЅРЅР° СЃС‚РµРєР°
 int len_stack(Stack& stack) {
 	comp* el = stack.head;
 	int count = 0;
@@ -50,7 +50,7 @@ int len_stack(Stack& stack) {
 	return count;
 }
 
-// удаление элемента из стека
+// СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РёР· СЃС‚РµРєР°
 void delete_el(Stack& stack, int k) {
 	comp* el = stack.head;
 	int len = len_stack(stack);
@@ -70,25 +70,24 @@ void delete_el(Stack& stack, int k) {
 	}
 }
 
-
 int main()
 {
 	setlocale(LC_ALL, "Rus");
-	// создаём стек
+	// СЃРѕР·РґР°С‘Рј СЃС‚РµРє
 	Stack stack_1;
-	// размер стека
+	// СЂР°Р·РјРµСЂ СЃС‚РµРєР°
 	int size = 10;
-	// заполняем поле data компонентов стека числами от 1 до size
+	// Р·Р°РїРѕР»РЅСЏРµРј РїРѕР»Рµ data РєРѕРјРїРѕРЅРµРЅС‚РѕРІ СЃС‚РµРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ size
 	for (int i = 1; i < size + 1; i++) {
 		add_comp(stack_1, i);
 	}
-	cout << "Начальный стек: " << endl;
+	cout << "РќР°С‡Р°Р»СЊРЅС‹Р№ СЃС‚РµРє: " << endl;
 	show_stack(stack_1);
 	cout << endl;
 
-	cout << "Промежуточный вид стека: " << endl;
+	cout << "РџСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹Р№ РІРёРґ СЃС‚РµРєР°: " << endl;
 	int temp = 0;
-	// удаление элементов с чётными номерами
+	// СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃ С‡С‘С‚РЅС‹РјРё РЅРѕРјРµСЂР°РјРё
 	for (int i = 1; i < size + 1; i++) {
 		if (i % 2 == 0) {
 			delete_el(stack_1, i - temp);
@@ -96,8 +95,7 @@ int main()
 			show_stack(stack_1);
 		}
 	}
-	cout << endl << "Конечный стек: " << endl;
+	cout << endl << "РљРѕРЅРµС‡РЅС‹Р№ СЃС‚РµРє: " << endl;
 	show_stack(stack_1);
-
 	return 0;
 }
