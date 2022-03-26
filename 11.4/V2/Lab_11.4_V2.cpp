@@ -3,25 +3,11 @@
 
 using namespace std;
 
-/*
-вставить элемент перед элементом с выбранным информационным полем 
-
-
-.pop - delete 
-
-
-
-добавлять все элементы в новую очередь пока не дойдём до элемента с нужным полем 
-добавить нужное поле
-добавить всё остальное 
-*/
-
-
 int main() {
-	// создаём очередь 
+	// СЃРѕР·РґР°С‘Рј РѕС‡РµСЂРµРґСЊ 
 	queue<char*> myQueue;
 
-	// заполняем очередь 
+	// Р·Р°РїРѕР»РЅСЏРµРј РѕС‡РµСЂРµРґСЊ 
 	char s[] = "Three";
 	myQueue.push(s);
 	char s_1[] = "Rings";
@@ -49,13 +35,13 @@ int main() {
 		myQueue_1.push(myQueue.front());
 		myQueue.pop();
 	}
-	// вставляем новый элемент
+	// РІСЃС‚Р°РІР»СЏРµРј РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚
 	myQueue_1.push(new_data);
 	while (!myQueue.empty()) {
 		myQueue_1.push(myQueue.front());
 		myQueue.pop();
 	}
-	// вывод
+	// РІС‹РІРѕРґ
 	while (!myQueue_1.empty()) {
 		cout << myQueue_1.front() << " ";
 		myQueue_1.pop();
