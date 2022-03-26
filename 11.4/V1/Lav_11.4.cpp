@@ -1,24 +1,23 @@
 #include <iostream>
 using namespace std;
 
-// компонент очереди
+// РєРѕРјРїРѕРЅРµРЅС‚ РѕС‡РµСЂРµРґРё
 struct comp {
 	char* data;
 	comp* next = nullptr;
 
 };
 
-// очередь 
+// РѕС‡РµСЂРµРґСЊ 
 struct Queue {
 	comp* rear = nullptr;
 	comp* front = nullptr;
 };
 
-// добавление элемента 
+// РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° 
 void push(Queue& queue,char data[]) {
 	comp* new_el = new comp;
 	new_el->data = data;
-
 	if (queue.front == nullptr) {
 		queue.front = new_el;
 		queue.rear = new_el;
@@ -27,10 +26,9 @@ void push(Queue& queue,char data[]) {
 		new_el->next = queue.rear;
 		queue.rear = new_el;
 	}
-
 }
 
-// вывод очереди 
+// РІС‹РІРѕРґ РѕС‡РµСЂРµРґРё 
 void show_queue(Queue& queue) {
 	comp* el = queue.rear;
 	while (el->next != nullptr) {
@@ -41,7 +39,7 @@ void show_queue(Queue& queue) {
 	cout << endl;
 }
 
-// длинна очереди 
+// РґР»РёРЅРЅР° РѕС‡РµСЂРµРґРё 
 int len_queue(Queue& queue) {
 	comp* el = queue.rear;
 	int count = 0;
@@ -53,7 +51,7 @@ int len_queue(Queue& queue) {
 	return count;
 }
 
-//поле элемента по его номеру
+//РїРѕР»Рµ СЌР»РµРјРµРЅС‚Р° РїРѕ РµРіРѕ РЅРѕРјРµСЂСѓ
 char* data_el(Queue& queue, int k) {
 	comp* el = queue.rear;
 	int len = len_queue(queue);
@@ -65,7 +63,7 @@ char* data_el(Queue& queue, int k) {
 	return temp;
 }
 
-// номер элемента по его полю
+// РЅРѕРјРµСЂ СЌР»РµРјРµРЅС‚Р° РїРѕ РµРіРѕ РїРѕР»СЋ
 int number_el_data(Queue& queue, char data[]) {
 	comp* el = queue.rear;
 	int len = len_queue(queue);
@@ -82,7 +80,7 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	Queue queue_1;
 	Queue queue_2;
-	// заполнение очереди
+	// Р·Р°РїРѕР»РЅРµРЅРёРµ РѕС‡РµСЂРµРґРё
 	char s[] = "Three";
 	push(queue_1, s);
 	char s_1[] = "Rings";
@@ -100,15 +98,15 @@ int main()
 	char s_7[] = "sky";
 	push(queue_1, s_7);
 
-	// вывод начальной очереди
-	cout << "Начальная очередь: " << endl;
+	// РІС‹РІРѕРґ РЅР°С‡Р°Р»СЊРЅРѕР№ РѕС‡РµСЂРµРґРё
+	cout << "РќР°С‡Р°Р»СЊРЅР°СЏ РѕС‡РµСЂРµРґСЊ: " << endl;
 	show_queue(queue_1);
 
-	// информционное поле для нового элемента
+	// РёРЅС„РѕСЂРјС†РёРѕРЅРЅРѕРµ РїРѕР»Рµ РґР»СЏ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 	char new_data[] = "Temp";
 
-	// добавление нового элемента 
-	int number = number_el_data(queue_1, s_1);
+	// РґРѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° 
+	int number = number_el_data(queue_1, s_4);
 	for (int i = 1; i < number+1; i++) {
 		push(queue_2, data_el(queue_1, i));
 	}
@@ -117,8 +115,10 @@ int main()
 		push(queue_2, data_el(queue_1, i));
 	}
 
-	//вывод конечной очереди
-	cout << "Конечная очередь: " << endl;
+	//РІС‹РІРѕРґ РєРѕРЅРµС‡РЅРѕР№ РѕС‡РµСЂРµРґРё
+	cout << "РљРѕРЅРµС‡РЅР°СЏ РѕС‡РµСЂРµРґСЊ: " << endl;
 	show_queue(queue_2);
+
+
 	return 0;
 }
