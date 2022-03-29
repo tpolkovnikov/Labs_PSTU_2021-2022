@@ -2,7 +2,7 @@
 #include"Class_Exam.h"
 using namespace std;
 
-// конструкторы
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
 Exam::Exam(string fio, string subject, int grade) {
 	FIO = fio;
 	Subject = subject;
@@ -20,12 +20,12 @@ Exam::Exam(const Exam&e) {
 	Subject = e.Subject;
 	Grade = e.Grade;
 }
-// деструктор
+// РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 Exam::~Exam() {
 
 }
 
-//методы
+//РјРµС‚РѕРґС‹
 string Exam::GetFIO() const {
 	return FIO;
 }
@@ -50,8 +50,4 @@ void Exam::SetGrade(int new_drade) {
 	Grade = new_drade;
 }
 
-void Exam::Print() {
-	cout << "FIO: " << FIO << endl;
-	cout << "Subject: " << Subject << endl;
-	cout << "Grade: " << Grade << endl;
-}
+vo
