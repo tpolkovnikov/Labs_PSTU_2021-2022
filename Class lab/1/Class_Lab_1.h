@@ -2,8 +2,8 @@
 #include <iostream>
 class Test {
 private:
-	double a;  // катет a
-	double b;  // катет b
+	double a;  // РєР°С‚РµС‚ a
+	double b;  // РєР°С‚РµС‚ b
 
 public:
 	void Init(double, double );
