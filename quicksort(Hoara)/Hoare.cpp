@@ -27,7 +27,6 @@ void quicksort(int* a, int left, int right)
 	if (left < j){
 		quicksort(a, left, j);
 	}
-	return;
 }
 
 
@@ -43,7 +42,7 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	srand(unsigned(time(0)));
 	int size;
-	cout << "Ââåäèòå äëèííó ìàñèñâà: \n";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð»Ð¸Ð½Ñƒ Ð¼Ð°ÑÑÐ¸Ð²Ð°: \n";
 	cin >> size;
 
 	int* arr = new int[size];
@@ -51,13 +50,14 @@ int main()
 	{
 		arr[i] = rand() % 100 + 1;
 	}
-	cout << "Íà÷àëüíûé ìàññèâ: ";
+	cout << "ÐÐ°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: ";
 	print_arr(arr, size);
 
 	int i = 0, j = size - 1;
 	quicksort(arr, i, j);
 
-	cout << "Êîíå÷íûé ìàññèâ: ";
+	cout << "ÐšÐ¾Ð½ÐµÑ‡Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: ";
 	print_arr(arr, size);
 	return 0;
 }
+
