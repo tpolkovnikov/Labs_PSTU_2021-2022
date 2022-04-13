@@ -6,21 +6,21 @@ private:
 	long ruble;
 	int kopeck;
 public:
-	// Конструктор с параметрами
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 	Money(long Ruble, int Kopeck) : ruble(Ruble), kopeck(Kopeck) {}
 
-	// Конструктор без параметров
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 	Money() : ruble(10), kopeck(50) {}
 
-	// Конструктор копирования
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	Money(const Money& e) : ruble(e.ruble), kopeck(e.kopeck){}
 
-	// Деструктор
+	// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	~Money() {
 
 	}
 
-	// модификаторы
+	// РјРѕРґРёС„РёРєР°С‚РѕСЂС‹
 	void setRuble(long Ruble) {
 		ruble = Ruble;
 	}
@@ -28,7 +28,7 @@ public:
 		kopeck = Kopeck;
 	}
 
-	// селекторы
+	// СЃРµР»РµРєС‚РѕСЂС‹
 	long getRuble() {
 		return ruble;
 	}
@@ -36,19 +36,19 @@ public:
 		return kopeck;
 	}
 
-	// вывод в консоль
+	// РІС‹РІРѕРґ РІ РєРѕРЅСЃРѕР»СЊ
 	void print() {
 		cout << ruble << ',' << kopeck;
 	}
 
-	// оператор сравнения ==
+	// РѕРїРµСЂР°С‚РѕСЂ СЃСЂР°РІРЅРµРЅРёСЏ ==
 	bool operator==(Money& p) {
 		if ((ruble * 100 + kopeck) == (p.ruble * 100 + p.kopeck)) {
 			return true; }
 		else { return false; }
 	}
 
-	// оператор сранвнения !=
+	// РѕРїРµСЂР°С‚РѕСЂ СЃСЂР°РЅРІРЅРµРЅРёСЏ !=
 	bool operator!= (Money& p) {
 		if ((ruble * 100 + kopeck) != (p.ruble * 100 + p.kopeck)) {
 			return true;
@@ -56,7 +56,7 @@ public:
 		else { return false; }
 	}
 
-	// вычитание копеек (постфиксная)
+	// РІС‹С‡РёС‚Р°РЅРёРµ РєРѕРїРµРµРє (РїРѕСЃС‚С„РёРєСЃРЅР°СЏ)
 	Money operator --(int) {
 		if (kopeck - 1 == -1) {
 			kopeck = 99;
@@ -69,7 +69,7 @@ public:
 		return t;
 	}
 	
-	// вычитание копеек (префиксная)
+	// РІС‹С‡РёС‚Р°РЅРёРµ РєРѕРїРµРµРє (РїСЂРµС„РёРєСЃРЅР°СЏ)
 	Money& operator--(){
 		Money t(ruble, kopeck);
 		if (kopeck - 1 == -1) {
@@ -82,7 +82,7 @@ public:
 		return t;
 	}
 	
-	// оператор присваивания
+	// РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	Money& operator=(const Money& t)
 	{
 		if (&t == this) {
@@ -93,7 +93,7 @@ public:
 		return *this;
 	}
 	
-	// перегрузка операторов ввод
+	// РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂРѕРІ РІРІРѕРґ
 	friend istream& operator>>(istream& in, Money& t);
 	friend ostream& operator<<(ostream& out, const Money& tmp);
 };
@@ -117,12 +117,8 @@ int main()
 	Money B(34,32);
 	cout << "A: " << A << endl;
 	cout << "B: " << B << endl << endl;
-
 	cout << "(A-- = A:) " << A-- << endl;
-
 	cout << "(A == B:) " << (A == B) << endl;
-
 	cout << "(A != B:) " << (A != B) << endl;
-
 	return 0;
 }
