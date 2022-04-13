@@ -2,30 +2,30 @@
 #include"Class_Exam.h"
 using namespace std;
 
-// ������������
+// конструкторы
 Exam::Exam(string fio, string subject, int grade) {
 	FIO = fio;
 	Subject = subject;
 	Grade = grade;
 }
-
+// конструктор по умолчанию 
 Exam::Exam() {
 	FIO = "Ivanov Ivan Ivanovich";
 	Subject = "Russian language";
 	Grade = 4;
 }
-
+// конструктор копирования
 Exam::Exam(const Exam&e) {
 	FIO = e.FIO;
 	Subject = e.Subject;
 	Grade = e.Grade;
 }
-// ����������
+// деструктор
 Exam::~Exam() {
 
 }
 
-//������
+//методы
 string Exam::GetFIO() const {
 	return FIO;
 }
