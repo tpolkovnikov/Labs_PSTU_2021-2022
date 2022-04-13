@@ -7,12 +7,12 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	Test testik;
 	double a; double b;
-	cout << "Ââåäèòå ïåðâûé êàòåò: " << endl;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€Ð²Ñ‹Ð¹ ÐºÐ°Ñ‚ÐµÑ‚: " << endl;
 	cin >> a;
-	cout << "Ââåäèòå âòîðîé êàòåò: " << endl;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ ÐºÐ°Ñ‚ÐµÑ‚: " << endl;
 	cin >> b;
 	testik.Init(a, b);
 
-	cout << "Ãèïîòåíóçà: " << testik.hipotenuse();
+	cout << "Ð“Ð¸Ð¿Ð¾Ñ‚ÐµÐ½ÑƒÐ·Ð°: " << testik.hipotenuse();
 	return 0;
 }
