@@ -36,11 +36,6 @@ public:
 		return kopeck;
 	}
 
-	// вывод в консоль
-	void print() {
-		cout << ruble << ',' << kopeck;
-	}
-
 	// оператор сравнения ==
 	bool operator==(Money& p) {
 		if ((ruble * 100 + kopeck) == (p.ruble * 100 + p.kopeck)) {
