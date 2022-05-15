@@ -68,7 +68,7 @@ public:
 	Money& operator--(){
 		Money t(ruble, kopeck);
 		if (kopeck - 1 == -1) {
-			kopeck == 99;
+			kopeck = 99;
 			ruble--;
 		}
 		else {
