@@ -1,6 +1,35 @@
 #include <iostream>
-#include "Class_Lab_1.h"
 using namespace std;
+
+class Test {
+private:
+	double a;  // катет a
+	double b;  // катет b
+
+public:
+	void Init(double, double);
+	double GetA();
+	double GetB();
+	double hipotenuse();
+};
+
+void Test::Init(double a_1, double b_1) {
+	a = a_1;
+	b = b_1;
+
+}
+
+double Test::GetA() {
+	return a;
+}
+
+double Test::GetB() {
+	return b;
+}
+
+double Test::hipotenuse() {
+	return sqrt(a * a + b * b);
+}
 
 int main()
 {
