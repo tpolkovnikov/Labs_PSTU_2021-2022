@@ -53,6 +53,7 @@ public:
 
 	// вычитание копеек (постфиксная)
 	Money operator --(int) {
+		Money t(ruble, kopeck);
 		if (kopeck - 1 == -1) {
 			kopeck = 99;
 			ruble--;
@@ -60,13 +61,11 @@ public:
 		else {
 			kopeck--;
 		}
-		Money t(ruble, kopeck);
 		return t;
 	}
 	
 	// вычитание копеек (префиксная)
 	Money& operator--(){
-		Money t(ruble, kopeck);
 		if (kopeck - 1 == -1) {
 			kopeck = 99;
 			ruble--;
@@ -74,6 +73,7 @@ public:
 		else {
 			kopeck--;
 		}
+		Money t(ruble, kopeck);
 		return t;
 	}
 	
