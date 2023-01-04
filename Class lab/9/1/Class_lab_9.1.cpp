@@ -17,7 +17,7 @@ public:
 	~plenty(void);
 
 	int& operator[](int);
-	// ğàçíîñòü ìíîæåñòâ
+	// Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°
 	plenty operator-(const plenty&);
 	plenty operator--();
 	int operator()();
@@ -134,7 +134,7 @@ istream& operator>>(istream & in, plenty & a) {
 int main()
 {
 	cout << "Variant 1:\n\n";
-	// Âàğèàíò 1
+	// Ğ­Ğ»ĞµĞ¼ĞµĞ½Ñ‚ 1
 	try {
 		plenty x(2);
 		plenty y;
