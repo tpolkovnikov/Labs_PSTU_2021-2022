@@ -21,8 +21,6 @@ public:
 	plenty operator-(const plenty&);
 	plenty operator--();
 	int operator()();
-	plenty operator+(const plenty&);
-	plenty operator+(const int);
 	plenty& operator=(const plenty&);
 
 
@@ -47,7 +45,7 @@ plenty::plenty(int s, int* d) {
 		data[i] = d[i];
 	}
 }
-plenty::plenty(const plenty & p) {
+plenty::plenty(const plenty& p) {
 	size = p.size;
 	data = new int[size];
 	for (int i = 0; i < size; i++) {
@@ -60,8 +58,8 @@ plenty::~plenty(void) {
 }
 
 int& plenty::operator[] (int index) {
-	if (index < 0) throw 2; 
-	if (index >= size) throw 3; 
+	if (index < 0) throw 2;
+	if (index >= size) throw 3;
 	return data[index];
 }
 
@@ -73,41 +71,29 @@ plenty plenty::operator--() {
 		data = nullptr;
 		return *this;
 	}
-	plenty temp(size);
+	plenty temp(size,data);
 	delete[]data;
 	size--;
-	data= new int[size];
+	data = new int[size];
 	for (int i = 0; i < size; i++) {
 		data[i] = temp.data[i];
 	}
 	return *this;
 
 }
-plenty plenty::operator-(const plenty & p) {
+plenty plenty::operator-(const plenty& p) {
 	plenty temp(size);
 	for (int i = 0; i < size; i++) {
 		temp.data[i] = this->data[i] - p.data[i];
 	}
 	return temp;
 }
-plenty plenty::operator+(const plenty& p) {
-	plenty temp(size);
-	for (int i = 0; i < size; i++) {
-		temp.data[i] = this->data[i] + p.data[i];
-	}
-	return temp;
-}
-plenty plenty::operator+(const int k) {
-	plenty temp(size);
-	for (int i = 0; i < size; i++) {
-		temp.data[i] = this->data[i] + k;
-	}
-	return temp;
-}
+
 int plenty::operator()() {
 	return size;
 }
-plenty& plenty::operator=(const plenty & p) {
+
+plenty& plenty::operator=(const plenty& p) {
 	if (this == &p) return *this;
 	size = p.size;
 	if (data != 0) delete[]data;
@@ -118,13 +104,13 @@ plenty& plenty::operator=(const plenty & p) {
 	return *this;
 }
 
-ostream& operator<< (ostream & out, const plenty & a) {
+ostream& operator<< (ostream& out, const plenty& a) {
 	for (int i = 0; i < a.size; i++) {
 		cout << a.data[i] << " ";
 	}
 	return out;
 }
-istream& operator>>(istream & in, plenty & a) {
+istream& operator>>(istream& in, plenty& a) {
 	for (int i = 0; i < a(); i++) {
 		in >> a.data[i];
 	}
@@ -136,7 +122,11 @@ int main()
 	cout << "Variant 1:\n\n";
 	// Элемент 1
 	try {
-		plenty x(2);
+		int* temp = new int[2];
+		temp[0] = 3;
+		temp[1] = 5;
+		plenty x(2, temp);
+		plenty z = x;
 		plenty y;
 		cout << "plenty x: " << x << endl;
 		cout << "Index? ";
@@ -144,8 +134,11 @@ int main()
 		cin >> i;
 
 		cout << "plenty x[index] : " << x[i] << endl;
-		y = x + 3;
-	cout << "plenty y = plenty x + 3 : " << y << endl<< endl;
+		cout << "plenty z: " << z << endl;
+		y = x - z;
+		cout << "plenty y = plenty x - planty z : " << y << endl << endl;
+		--y;
+		cout << "planty y-- : " << y << endl;
 	}
 	catch (int) {
 		cout << "Error!!!" << endl;
